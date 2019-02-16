@@ -1,8 +1,7 @@
-FROM php:7.3-zts-stretch AS build
+FROM php:7.3-zts-alpine AS build
 
-RUN apt-get update && \
-	apt-get install -y --no-install-recommends \
-		git
+RUN apk update && \
+    apk add --no-cache $PHPIZE_DEPS git
 
 RUN git clone https://github.com/krakjoe/parallel
 
@@ -17,7 +16,9 @@ RUN make install
 RUN EXTENSION_DIR=`php-config --extension-dir 2>/dev/null` && \
 	cp "$EXTENSION_DIR/parallel.so" /parallel.so
 
-FROM php:7.3-zts-stretch
+RUN sha256sum /parallel.so
+
+FROM php:7.3-zts-alpine
 
 COPY --from=build /parallel.so /parallel.so
 
