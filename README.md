@@ -9,3 +9,7 @@ docker pull sarkedev/php-parallel
 ```
 docker run --rm -v `pwd`:`pwd` -w `pwd` sarkedev/php-parallel php yourphpfile.php
 ```
+
+## Alpine
+
+For a smaller image use `sarkedev/php-parallel:alpine` instead.
