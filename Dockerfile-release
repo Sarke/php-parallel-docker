@@ -4,7 +4,7 @@ RUN apt-get update && \
 	apt-get install -y --no-install-recommends \
 		git procps
 
-RUN git clone https://github.com/krakjoe/parallel
+RUN git clone --single-branch --branch release https://github.com/krakjoe/parallel
 
 WORKDIR /parallel
 
