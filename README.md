@@ -12,6 +12,12 @@ docker pull sarkedev/php-parallel
 docker run --rm -v `pwd`:`pwd` -w `pwd` sarkedev/php-parallel php yourphpfile.php
 ```
 
-## Alpine
+## Latest
 
-For a smaller image use `sarkedev/php-parallel:alpine` instead.
+The default tag `latest` is based on `php:7.4-zts-alpine` and the release branch of [krakjoe/parallel](https://github.com/krakjoe/parallel).
+
+## Development builds
+
+The default is based on the `release` branch and only builds if the `make test` succeeds.  If you want to try the `develop` branch you can try the `sarkedev/php-parallel:develop` and similar tags.
+
+Images are also tagged with the short commit hash of the [krakjoe/parallel](https://github.com/krakjoe/parallel) commit it is building.
