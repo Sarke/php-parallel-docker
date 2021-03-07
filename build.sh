@@ -9,7 +9,7 @@ docker-php-source extract
 
 docker-php-ext-configure $EXT
 
-if [[ $1 = "test" ]]; then
+if [ $1 = "test" ]; then
 	make test
 fi
 
