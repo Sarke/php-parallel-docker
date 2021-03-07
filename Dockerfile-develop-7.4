@@ -1,0 +1,6 @@
+FROM php:7.4.16-zts
+
+COPY develop /usr/src/php/ext/parallel
+COPY build.sh /usr/src/php/ext/parallel/build.sh
+
+RUN /usr/src/php/ext/parallel/build.sh

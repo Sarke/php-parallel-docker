@@ -1,0 +1,6 @@
+[submodule "develop"]
+	path = develop
+	url = git@github.com:krakjoe/parallel.git
+[submodule "release"]
+	path = release
+	url = git@github.com:krakjoe/parallel.git

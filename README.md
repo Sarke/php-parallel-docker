@@ -1,6 +1,8 @@
 # php-parallel-docker
 
-A docker image based on PHP:7.3-zts that adds the [parallel extension](https://github.com/krakjoe/parallel)
+[![Docker Pulls](https://img.shields.io/docker/pulls/sarkedev/php-parallel)](https://hub.docker.com/r/sarkedev/php-parallel)
+
+A docker image based on the official PHP:7.4-zts or PHP:8.0-zts images that adds the [parallel extension](https://github.com/krakjoe/parallel)
 
 ```
 docker pull sarkedev/php-parallel
