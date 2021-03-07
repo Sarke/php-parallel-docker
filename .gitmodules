@@ -4,3 +4,4 @@
 [submodule "release"]
 	path = release
 	url = git@github.com:krakjoe/parallel.git
+	branch = release
