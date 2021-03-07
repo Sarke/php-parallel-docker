@@ -12,7 +12,7 @@ fi
 cd "${BRANCH:-release}"
 UPSTREAM_COMMIT=$(git rev-parse --short HEAD)
 
-TAGS=( "${$PARTS[0]}-${PHP_VERSION}-${UPSTREAM_COMMIT}" )
+TAGS=( "${PARTS[0]}-${PHP_VERSION}-${UPSTREAM_COMMIT}" )
 
 if [[ $PARTS[1] = "7.4" ]]; then
 	TAGS+=( $PARTS[0] )
