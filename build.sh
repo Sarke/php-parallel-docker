@@ -10,9 +10,9 @@ docker-php-source extract
 docker-php-ext-configure $EXT
 
 if [ $1 = "test" ]; then
-	printf 'n\n' | make test
+	make test TESTS="-q --show-diff tests"
 else
-	printf 'n\n' | make test || true
+	make test TESTS="-q --show-diff tests" || true
 fi
 
 docker-php-ext-install $EXT
