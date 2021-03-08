@@ -1,7 +1,9 @@
 FROM php:7.4.16-zts-alpine
 
-RUN pecl install parallel && \
+RUN apk add --no-cache --update pcre-dev ${PHPIZE_DEPS} && \
+	pecl install parallel && \
 	docker-php-ext-enable parallel && \
+	apk del pcre-dev ${PHPIZE_DEPS} && \
 	EXTENSION_DIR=`php-config --extension-dir 2>/dev/null` && \
 	echo "=====================================================================" && \
 	echo "Finished building. SHA256:" && \
