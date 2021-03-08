@@ -23,6 +23,6 @@ set +x
 EXTENSION_DIR=`php-config --extension-dir 2>/dev/null`
 
 echo "====================================================================="
-echo "Finished building"
+echo "Finished building. SHA256:"
 sha256sum "$EXTENSION_DIR/$EXT.so" | sed "s/  /\n/"
 echo "====================================================================="

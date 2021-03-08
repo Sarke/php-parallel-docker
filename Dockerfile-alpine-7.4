@@ -1,6 +1,9 @@
 FROM php:7.4.16-zts-alpine
 
-COPY develop /usr/src/php/ext/parallel
-COPY build.sh /usr/src/php/ext/parallel/build.sh
-
-RUN /usr/src/php/ext/parallel/build.sh test
+RUN pecl install parallel && \
+	docker-php-ext-enable parallel && \
+	EXTENSION_DIR=`php-config --extension-dir 2>/dev/null` && \
+	echo "=====================================================================" && \
+	echo "Finished building. SHA256:" && \
+	sha256sum "$EXTENSION_DIR/parallel.so" | sed "s/  /\n/" && \
+	echo "====================================================================="
