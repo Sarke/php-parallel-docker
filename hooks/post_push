@@ -5,7 +5,7 @@ EXT="parallel"
 PHP_VERSION=$(docker run $IMAGE_NAME php -r 'echo phpversion();')
 PARTS=(${DOCKER_TAG//-/ })
 
-if [[ $PARTS[0] = "develop" ]]; then
+if [[ ${PARTS[0]} = "develop" ]]; then
 	BRANCH="develop"
 fi
 
@@ -14,14 +14,12 @@ UPSTREAM_COMMIT=$(git rev-parse --short HEAD)
 
 TAGS=( "${PARTS[0]}-${PHP_VERSION}-${UPSTREAM_COMMIT}" )
 
-if [[ $PARTS[1] = "7.4" ]]; then
-	TAGS+=( $PARTS[0] )
+if [[ ${PARTS[1]} = "7.4" ]]; then
+	TAGS+=( ${PARTS[0]} )
 
-	if [[ $PARTS[0] = "alpine" ]]; then
+	if [[ ${PARTS[0]} = "alpine" ]]; then
 		TAGS+=( "latest" )
 	fi
-
-	stretch
 fi
 
 for TAG in "${TAGS[@]}"
