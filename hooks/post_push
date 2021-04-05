@@ -3,7 +3,7 @@ set -ex
 
 EXT="parallel"
 PHP_VERSION=$(docker run $IMAGE_NAME php -r 'echo phpversion();')
-PARTS=(${DOCKER_TAG//;/ })
+PARTS=(${DOCKER_TAG//-/ })
 
 if [[ $PARTS[0] = "develop" ]]; then
 	BRANCH="develop"
