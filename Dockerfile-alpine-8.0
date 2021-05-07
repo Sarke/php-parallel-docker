@@ -1,4 +1,4 @@
-FROM php:8.0.3-zts-alpine
+FROM php:7.4.19-zts-alpine
 
 COPY develop /usr/src/php/ext/parallel
 COPY build.sh /usr/src/php/ext/parallel/build.sh
