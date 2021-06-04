@@ -1,4 +1,4 @@
-FROM php:7.4.16-zts-alpine
+FROM php:7.4.20-zts-alpine
 
 RUN apk add --no-cache --update pcre-dev ${PHPIZE_DEPS} && \
 	pecl install parallel && \
